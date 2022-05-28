@@ -53,7 +53,7 @@ void setup() {
   config.database_url = DATABASE_URL;
 
   /* Sign up */
-  if (Firebase.signUp(&config, &auth, "kewinproductions2@gmail.com", "kewim153...")) {
+  if (Firebase.signUp(&config, &auth, "", "")) {
     Serial.println("ok");
     signupOK = true;
   }
@@ -69,6 +69,7 @@ void setup() {
 }
 
 void loop() {
+ 
   if (Firebase.ready() && signupOK ) {
     if (Firebase.RTDB.getString(&fbdo, "/L1")) {
       if (fbdo.dataType() == "string") {
@@ -101,5 +102,6 @@ void loop() {
     else {
       Serial.println(fbdo.errorReason());
     }
+  
   }
 }
