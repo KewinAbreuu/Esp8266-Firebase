@@ -18,6 +18,18 @@ Abra o Arquivo Aduino :
 - [x] Coloque o Terminal em 115200
 - [x] Vá em Ferramentas/MMU e Selecione 16kb cache + 48kb...
 
+
+Edite as regras do realtimeDatabase :
+```
+ {
+  "rules": {
+    ".read": "auth != null", 
+    ".write": "auth != null"
+  }
+}
+```
+Habilite o Modo anonimo na autenticação firebase
+
 ```
   Compile o código
 ```
