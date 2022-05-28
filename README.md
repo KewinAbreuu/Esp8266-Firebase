@@ -21,10 +21,10 @@ Abra o Arquivo Aduino :
 
 Edite as regras do realtimeDatabase :
 ```
- {
+{
   "rules": {
-    ".read": "auth != null", 
-    ".write": "auth != null"
+    ".read": true,
+    ".write": true
   }
 }
 ```
