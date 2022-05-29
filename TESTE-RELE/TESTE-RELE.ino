@@ -34,7 +34,7 @@ bool signupOK = false;
 void setup() {
   Serial.begin(115200);
   pinMode(2,OUTPUT);
-  pinMode(D0,OUTPUT);
+  pinMode(5,OUTPUT);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -87,15 +87,15 @@ void loop() {
       Serial.println(fbdo.errorReason());
     }
     
-    if (Firebase.RTDB.getString(&fbdo, "/L2")) {
+    if (Firebase.RTDB.getString(&fbdo, "/L1")) {
       if (fbdo.dataType() == "string") {
         sValue2 = fbdo.stringData();
         int b = sValue2.toInt();
         Serial.println(b);
         if (b == 1){
-          digitalWrite(D2,HIGH);
+          digitalWrite(5,HIGH);
         }else{
-          digitalWrite(D2,LOW);
+          digitalWrite(5,LOW);
         }
       }
     }
