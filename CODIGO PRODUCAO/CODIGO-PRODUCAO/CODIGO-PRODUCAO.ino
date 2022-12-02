@@ -77,8 +77,15 @@ void setup() {
   //WHATCHSDOG
   
   Serial.begin(115200);
-  pinMode(2,OUTPUT);
-  pinMode(5,OUTPUT);
+  pinMode(D0,OUTPUT);
+  pinMode(D1,OUTPUT);
+  pinMode(D2,OUTPUT);
+  pinMode(D3,OUTPUT);
+  pinMode(D4,OUTPUT);
+  pinMode(D5,OUTPUT);
+  pinMode(D6,OUTPUT);
+  pinMode(D8,OUTPUT);
+ 
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -192,7 +199,7 @@ void loop() {
       Serial.println(fbdo.errorReason());
     }
 
-    //D5
+     //D5
     if (Firebase.RTDB.getString(&fbdo, "D5/L1")) {
       if (fbdo.dataType() == "string") {
         sValue5 = fbdo.stringData();
@@ -230,51 +237,46 @@ void loop() {
       Serial.println(fbdo.errorReason());
     }
 
-    //D7
-    if (Firebase.RTDB.getString(&fbdo, "D7/L1")) {
-      if (fbdo.dataType() == "string") {
-        sValue7 = fbdo.stringData();
-        int g = sValue7.toInt();
-        Serial.println(g);
-        if (g == 1){
-          digitalWrite(D6,HIGH);
-          Serial.println("PORTA D6 on");
-        }else{
-          digitalWrite(D6,LOW);
-          Serial.println("PORTA D6 off");
+   //D7
+      if (Firebase.RTDB.getString(&fbdo, "D7/L1")) {
+        if (fbdo.dataType() == "string") {
+          sValue7 = fbdo.stringData();
+          int g = sValue7.toInt();
+          Serial.println(g);
+          if (g == 1){
+            digitalWrite(D6,HIGH);
+            Serial.println("PORTA D6 on");
+          }else{
+            digitalWrite(D6,LOW);
+            Serial.println("PORTA D6 off");
+          }
         }
       }
-    }
-    else {
-      Serial.println(fbdo.errorReason());
-    }
+      else {
+        Serial.println(fbdo.errorReason());
+      }
 
-    //D8
-    if (Firebase.RTDB.getString(&fbdo, "D8/L1")) {
-      if (fbdo.dataType() == "string") {
-        sValue8 = fbdo.stringData();
-        int h = sValue8.toInt();
-        Serial.println(h);
-        if (h == 1){
-          digitalWrite(D8,HIGH);
-          Serial.println("PORTA D8 on");
-        }else{
-          digitalWrite(D8,LOW);
-          Serial.println("PORTA D8 off");
+      //D8
+      if (Firebase.RTDB.getString(&fbdo, "D8/L1")) {
+        if (fbdo.dataType() == "string") {
+          sValue8 = fbdo.stringData();
+          int h = sValue8.toInt();
+          Serial.println(h);
+          if (h == 1){
+            digitalWrite(D8,HIGH);
+            Serial.println("PORTA D8 on");
+          }else{
+            digitalWrite(D8,LOW);
+            Serial.println("PORTA D8 off");
+          }
         }
       }
-    }
-    else {
-      Serial.println(fbdo.errorReason());
-    }
-    
+      else {
+        Serial.println(fbdo.errorReason());
+      }
 
-    //FIM
+
+   
   }
-  
- if ( digitalRead(bot) == LOW ) {
-    while (digitalRead(!bot)) {
-        Serial.println("botão apertado ");
-      }
-    }  
+    
 }

@@ -23,14 +23,14 @@
 //WHATCHSDOG
 
 // Insert your network credentials
-#define WIFI_SSID "Casa_Paripueira"
-#define WIFI_PASSWORD "abreu2022"
+#define WIFI_SSID "TP-Link_49AE"
+#define WIFI_PASSWORD "84478658"
 
 // Insert Firebase project API Key
-#define API_KEY "AIzaSyB8WpaHjzv2WLdM812retS2F5Dk0hSYgCM"
+#define API_KEY "AIzaSyBINsszJy3il1RjsF6Sn6_hjUtN7Ev77u4"
 
 // Insert RTDB URLefine the RTDB URL */
-#define DATABASE_URL "appportaria-b0a1b-default-rtdb.firebaseio.com/" 
+#define DATABASE_URL "appteste-c4486-default-rtdb.firebaseio.com/" 
 
 //Define Firebase Data object
 FirebaseData fbdo;
@@ -118,7 +118,7 @@ void loop() {
       Serial.println(fbdo.errorReason());
     }
     
-    if (Firebase.RTDB.getString(&fbdo, "/L1")) {
+    if (Firebase.RTDB.getString(&fbdo, "/L2")) {
       if (fbdo.dataType() == "string") {
         sValue2 = fbdo.stringData();
         int b = sValue2.toInt();
