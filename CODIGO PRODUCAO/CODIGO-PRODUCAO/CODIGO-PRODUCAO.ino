@@ -39,10 +39,10 @@
 #define WIFI_PASSWORD "84478658"
 
 // Insert Firebase project API Key
-#define API_KEY "AIzaSyBINsszJy3il1RjsF6Sn6_hjUtN7Ev77u4"
+#define API_KEY "AIzaSyB8WpaHjzv2WLdM812retS2F5Dk0hSYgCM"
 
 // Insert RTDB URLefine the RTDB URL */
-#define DATABASE_URL "appteste-c4486-default-rtdb.firebaseio.com/" 
+#define DATABASE_URL "https://appportaria-b0a1b-default-rtdb.firebaseio.com/" 
 //ALTERAR ------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Define Firebase Data object
